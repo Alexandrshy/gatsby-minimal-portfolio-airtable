@@ -12,19 +12,15 @@
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
     "clean": "gatsby clean",
+    "prepare": "husky install",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "lint-staged": {
     "src/*": [
       "yarn format",
       "yarn type-check"
-    ]
+    ],
+    "*.{js,jsx,ts,tsx,json,md}": "prettier --write"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
