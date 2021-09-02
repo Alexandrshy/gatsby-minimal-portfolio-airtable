@@ -1,0 +1,24 @@
+.wrapper {
+  text-align: center;
+}
+
+.title {
+  font-size: 10rem;
+  margin: 0;
+}
+
+.subTitle {
+  font-size: 2rem;
+  margin: 0 0 3.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 8rem;
+  }
+
+  .subTitle {
+    font-size: 1.65rem;
+    margin: -0.25rem 0 2.25rem;
+  }
+}
