@@ -1,0 +1,26 @@
+.logo {
+  display: block;
+  width: 90px;
+  height: 90px;
+  margin-right: 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid var(--border-logo-color);
+  transition: border-color var(--transition);
+}
+
+@media (hover: hover) {
+  .logo:hover {
+    border-color: var(--border-logo-color-hover);
+  }
+
+  .logo:hover + div h1 a {
+    color: var(--link-color);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+}
