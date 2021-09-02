@@ -1,6 +1,8 @@
 import { Link } from "gatsby"
 import React from "react"
 
+import { Social } from "../social"
+
 import * as s from "./style.module.css"
 
 const MENU_LIST = [
@@ -38,14 +40,6 @@ export const Nav: React.FC = () => (
         </li>
       ))}
     </ul>
-    <ul className={s.list}>
-      {SOCIAL_LIST.map(({ url, title }) => (
-        <li key={title} className={s.item}>
-          <a href={url} target="_blank" rel="noopener">
-            {title}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <Social list={SOCIAL_LIST} />
   </nav>
 )

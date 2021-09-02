@@ -1,0 +1,21 @@
+.list {
+  position: relative;
+  margin: 0 1.5rem 0 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.item {
+  display: inline-block;
+  margin-right: 0.75rem;
+}
+
+.item:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .item {
+    margin-right: 0.55rem;
+  }
+}
