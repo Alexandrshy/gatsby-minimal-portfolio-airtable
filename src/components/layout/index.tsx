@@ -24,7 +24,7 @@ const Layout: React.FC = ({ children }) => {
       <div className={s.wrapper}>
         <div className={s.container}>
           <Header />
-          <main>{children}</main>
+          <main className={s.main}>{children}</main>
           <Footer />
         </div>
       </div>

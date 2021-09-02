@@ -14,3 +14,7 @@
   justify-content: space-between;
   min-height: 100vh;
 }
+
+.main {
+  padding: 3rem 0;
+}
