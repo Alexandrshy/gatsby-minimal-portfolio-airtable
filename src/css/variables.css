@@ -1,6 +1,7 @@
 :root {
   --min-width: 320px;
-  --max-width: 800px;
+  --max-width: 1200px;
+  --blog-width: 800px;
   --offset: 30px;
 
   --base-font-family: "JetBrains Mono", sans-serif;
@@ -11,10 +12,12 @@
   --shark: #252931;
   --carnation-pink: #ffaaca;
   --bon-jour: #e8e5e5;
+  --gray-chateau: #9ca3af;
 
   --bg: var(--shark);
   --logo-text-color: var(--bon-jour);
   --text-color: var(--bon-jour);
+  --subtitle-color: var(--gray-chateau);
   --link-color: var(--carnation-pink);
   --border-logo-color: var(--bon-jour);
   --border-logo-color-hover: var(--carnation-pink);
