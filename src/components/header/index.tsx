@@ -6,9 +6,7 @@ import { Nav } from "../nav"
 
 import * as s from "./style.module.css"
 
-type PropsType = {}
-
-export const Header: React.FC<PropsType> = () => {
+export const Header: React.FC = () => {
   return (
     <header className={s.header}>
       <div className={s.wrapper}>
