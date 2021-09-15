@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import * as s from "./style.module.css"
 
 export const Description: React.FC = () => (
-  <div className={s.wrapper}>
+  <>
     <p className={s.line}>
       Team lead at{" "}
       <a href="https://www.glassesusa.com/" target="_blank" rel="noopener">
@@ -35,5 +35,5 @@ export const Description: React.FC = () => (
     <p className={s.line}>
       I want to try my hand at mentoring contact me if you're interested
     </p>
-  </div>
+  </>
 )
