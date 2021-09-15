@@ -1,0 +1,11 @@
+.subtitle {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  color: var(--subtitle-color);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+}
