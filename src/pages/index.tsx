@@ -1,6 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 
+import { Description } from "../components/description"
+
+import * as s from "./index.module.css"
+
 export const query = graphql`
   {
     allAirtable(filter: { table: { eq: "blog" } }) {
@@ -18,7 +22,8 @@ export const query = graphql`
 `
 
 export default ({ data }: { data: any }) => (
-  <div>
+  <div className={s.wrapper}>
+    <Description />
     <ul>
       {data.allAirtable.nodes.map((node: any) => (
         <li key={node.recordId}>{node.data.Short_description}</li>
