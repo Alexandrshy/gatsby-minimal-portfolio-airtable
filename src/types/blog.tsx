@@ -4,13 +4,14 @@ export type AirtableBlog = {
       {
         recordId: string
         data: {
-          short_description: {
+          short_description: string
+          title: string
+          description: {
             childMarkdownRemark: {
               html: string
+              timeToRead: number
             }
           }
-          title: string
-          description: string
           status: string
           slug: string
           date: string
