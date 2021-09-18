@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: ["JetBrains Mono:300,400,700"],
+        fonts: ["Inter:300,400,700,900"],
         display: "swap",
       },
     },
