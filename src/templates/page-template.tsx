@@ -3,15 +3,15 @@ import { graphql } from "gatsby"
 
 export default ({ data }: { data: any }) => (
   <div>
-    <h3>{data.airtable.data.Title}</h3>
+    <h3>{data.airtable.data.title}</h3>
   </div>
 )
 
 export const query = graphql`
-  query GetPage($Path: String!) {
-    airtable(table: { eq: "blog" }, data: { Path: { eq: $Path } }) {
+  query GetPage($slug: String!) {
+    airtable(table: { eq: "blog" }, data: { slug: { eq: $slug } }) {
       data {
-        Title
+        title
       }
     }
   }
