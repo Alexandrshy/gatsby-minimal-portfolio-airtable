@@ -3,6 +3,12 @@ require("dotenv").config()
 module.exports = {
   plugins: [
     {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [`gatsby-remark-images-anywhere`],
+      },
+    },
+    {
       resolve: "gatsby-source-airtable",
       options: {
         apiKey: process.env.AIRTABLE_KEY,
@@ -10,6 +16,8 @@ module.exports = {
           {
             baseId: process.env.TABLES_ID,
             tableName: process.env.TABLE_NAME,
+            mapping: { description: "text/markdown" },
+            separateMapType: true,
           },
         ],
       },

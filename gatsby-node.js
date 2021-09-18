@@ -12,7 +12,7 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               table
               data {
-                Path
+                slug
               }
             }
           }
@@ -23,14 +23,14 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.allAirtable.edges.forEach(
       ({
         node: {
-          data: { Path },
+          data: { slug },
         },
       }) => {
         createPage({
-          path: Path,
+          path: slug,
           component: PageTemplate,
           context: {
-            Path,
+            slug,
           },
         })
       }
