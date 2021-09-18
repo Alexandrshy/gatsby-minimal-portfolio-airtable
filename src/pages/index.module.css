@@ -1,0 +1,4 @@
+.wrapper {
+  max-width: var(--blog-width);
+  margin: 0 auto;
+}
