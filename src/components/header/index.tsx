@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
     <header className={s.header}>
       <div className={s.wrapper}>
         <Logo />
-        <div>
+        <div className={s.box}>
           <h1 className={s.title}>
             <Link to="/" className={s.link}>
               Alex Shulaev
