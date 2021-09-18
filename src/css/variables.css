@@ -4,8 +4,18 @@
   --blog-width: 800px;
   --offset: 30px;
 
-  --base-font-family: "JetBrains Mono", sans-serif;
+  --vertical-gap: 1.5rem;
+  --vertical-gap-small: 0.5rem;
+  --vertical-gap-large: 2.5rem;
+
+  --base-font-family: "Inter", Helvetica, Arial, sans-serif;
   --base-font-size: 18px;
+  --base-line-height: 1.75;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 900;
 
   --transition: 0.3s;
 
@@ -39,6 +49,46 @@ html {
   font-size: var(--base-font-size);
   font-family: var(--base-font-family);
   background-color: var(--bg);
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 var(--vertical-gap);
+  font-weight: var(--font-weight-bold);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  line-height: var(--base-line-height);
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  text-decoration: none;
+}
+
+blockquote,
+mark,
+p,
+pre {
+  margin: 0 0 var(--vertical-gap);
 }
 
 a {
