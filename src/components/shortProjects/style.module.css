@@ -1,0 +1,38 @@
+.list {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  margin: calc(var(--image-indent) * -1);
+  padding: 0;
+  list-style-type: none;
+}
+
+.item {
+  width: 50%;
+  padding: var(--image-indent);
+}
+
+.link {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.img {
+  margin-bottom: var(--image-vertical-gap);
+}
+
+.title {
+  margin: 0 0 0.575rem;
+  font-size: 1.35rem;
+  line-height: 1.7rem;
+}
+
+@media screen and (max-width: 576px) {
+  .item {
+    width: 100%;
+    max-width: 390px;
+    margin: auto;
+  }
+}
