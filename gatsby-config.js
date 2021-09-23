@@ -15,22 +15,29 @@ module.exports = {
         tables: [
           {
             baseId: process.env.TABLES_ID,
-            tableName: process.env.TABLE_NAME,
-            mapping: { description: "text/markdown" },
+            tableName: process.env.TABLE_BLOG_NAME,
+            mapping: { description: "text/markdown", cover: "fileNode" },
+            separateMapType: true,
+          },
+          {
+            baseId: process.env.TABLES_ID,
+            tableName: process.env.TABLE_PROJECTS_NAME,
+            mapping: { description: "text/markdown", cover: "fileNode" },
             separateMapType: true,
           },
         ],
       },
     },
     "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        name: "images",
         path: `${__dirname}/static/img/`,
       },
     },
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
