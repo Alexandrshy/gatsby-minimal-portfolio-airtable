@@ -1,9 +1,9 @@
-.wrapper {
+.wrapper:not(:last-child) {
   margin: 0 0 8rem;
 }
 
 @media screen and (max-width: 768px) {
-  .wrapper {
+  .wrapper:not(:last-child) {
     margin: 0 0 6rem;
   }
 }
