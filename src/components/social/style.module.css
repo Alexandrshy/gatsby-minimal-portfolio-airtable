@@ -1,13 +1,13 @@
 .list {
   position: relative;
-  margin: 0 1.5rem 0 0;
+  margin: 0 var(--gap) 0 0;
   padding: 0;
   list-style-type: none;
 }
 
 .item {
   display: inline-block;
-  margin-right: 0.75rem;
+  margin-right: calc(var(--gap) / 2);
 }
 
 .item:last-child {
@@ -16,12 +16,12 @@
 
 @media screen and (max-width: 768px) {
   .item {
-    margin-right: 0.55rem;
+    margin-right: calc(var(--gap) / 3);
   }
 }
 
 @media screen and (max-width: 576px) {
   .item:not(:last-child) {
-    margin-bottom: 0.55rem;
+    margin-bottom: calc(var(--gap) / 3);
   }
 }
