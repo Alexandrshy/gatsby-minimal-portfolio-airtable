@@ -2,7 +2,7 @@ const path = require("path")
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const PageTemplate = path.resolve(`./src/templates/page-template.tsx`)
+  const BlogPageTemplate = path.resolve(`./src/templates/blogPageTemplate.tsx`)
 
   return new Promise(async resolve => {
     const result = await graphql(`
@@ -28,7 +28,7 @@ exports.createPages = ({ graphql, actions }) => {
       }) => {
         createPage({
           path: slug,
-          component: PageTemplate,
+          component: BlogPageTemplate,
           context: {
             slug,
           },
