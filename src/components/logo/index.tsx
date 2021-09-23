@@ -7,7 +7,7 @@ import * as s from "./style.module.css"
 export const Logo: React.FC = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
-      file {
+      fileName: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
           gatsbyImageData(
             height: 200
@@ -23,7 +23,7 @@ export const Logo: React.FC = () => {
   return (
     <Link className={s.logo} to="/">
       <GatsbyImage
-        image={data.file.childImageSharp.gatsbyImageData}
+        image={data.fileName.childImageSharp.gatsbyImageData}
         alt="Logo"
       />
     </Link>
