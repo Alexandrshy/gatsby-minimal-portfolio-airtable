@@ -14,10 +14,6 @@ const MENU_LIST = [
     title: "Projects",
     url: "/projects",
   },
-  {
-    title: "Hire me",
-    url: "/contact",
-  },
 ]
 
 const SOCIAL_LIST = [
