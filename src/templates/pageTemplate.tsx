@@ -9,7 +9,7 @@ export default ({ data }: { data: any }) => (
 
 export const query = graphql`
   query GetPage($slug: String!) {
-    airtable(table: { eq: "blog" }, data: { slug: { eq: $slug } }) {
+    airtable(data: { slug: { eq: $slug } }) {
       data {
         title
       }
