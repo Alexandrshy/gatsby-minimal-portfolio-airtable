@@ -29,7 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
       }) => {
         createPage({
           path: `${table}/${slug}`,
-          component: BlogPageTemplate,
+          component: PageTemplate,
           context: {
             slug,
           },
