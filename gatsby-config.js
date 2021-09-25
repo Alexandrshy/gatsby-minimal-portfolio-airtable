@@ -1,6 +1,20 @@
 require("dotenv").config()
 
+const siteMetadata = {
+  title: "Alex Shulaev",
+  titleTemplate: "Portfolio",
+  description:
+    "Team lead at GlassesUSA on the Product Labs team, doing A/B testing. Writing the blog about development and team management",
+  image: "/img/logo.png",
+  siteUrl: "https://alexandrshy.dev",
+  siteLanguage: "en-US",
+  siteLocale: "en_us",
+  twitterUsername: "@alexandrshy_dev",
+  telegramUsername: "@alexandrshy",
+}
+
 module.exports = {
+  siteMetadata,
   plugins: [
     {
       resolve: "gatsby-transformer-remark",
