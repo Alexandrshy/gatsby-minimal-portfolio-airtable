@@ -1,15 +1,13 @@
 import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 import { Title } from "../title"
-import { preparationReadingTime } from "../../utils/preparationReadingTime"
+import { Publications } from "../publications"
 
-import type { AirtableBlog } from "../../types/tables"
-
-import * as s from "./style.module.css"
+import type { AirtableBlogType } from "../../types/tables"
 
 export const ShortBlog: React.FC = () => {
-  const data = useStaticQuery<AirtableBlog>(graphql`
+  const data = useStaticQuery<AirtableBlogType>(graphql`
     {
       allAirtable(
         filter: { table: { eq: "blog" } }
@@ -18,6 +16,7 @@ export const ShortBlog: React.FC = () => {
       ) {
         nodes {
           recordId
+          table
           data {
             short_description
             title
@@ -39,25 +38,10 @@ export const ShortBlog: React.FC = () => {
   return (
     <>
       <Title subtitle="blog">Some recent posts</Title>
-      <ul className={s.list}>
-        {data.allAirtable.nodes.map(({ recordId, data }) => (
-          <li key={recordId} className={s.item}>
-            <h5 className={s.title}>
-              <Link to={data.slug}>{data.title}</Link>
-            </h5>
-            <div className={s.additional}>
-              <span>{data.date}</span>
-              <span>•</span>
-              <span>
-                {preparationReadingTime(
-                  data.description.childMarkdownRemark.timeToRead
-                )}
-              </span>
-            </div>
-            <p>{data.short_description}</p>
-          </li>
-        ))}
-      </ul>
+      <Publications
+        list={data.allAirtable.nodes}
+        path={`${data.allAirtable.nodes[0].table}/`}
+      />
     </>
   )
 }
