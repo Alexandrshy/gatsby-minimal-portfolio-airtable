@@ -1,12 +1,10 @@
 import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby"
 
 import { Title } from "../title"
+import { ProjectList } from "../projectList"
 
 import type { AirtableProjectsType } from "../../types/tables"
-
-import * as s from "./style.module.css"
 
 export const ShortProjects: React.FC = () => {
   const data = useStaticQuery<AirtableProjectsType>(graphql`
@@ -21,7 +19,7 @@ export const ShortProjects: React.FC = () => {
           table
           data {
             title
-            slug
+            link
             cover {
               localFiles {
                 childImageSharp {
@@ -43,20 +41,7 @@ export const ShortProjects: React.FC = () => {
   return (
     <>
       <Title subtitle="projects">My Open Source projects</Title>
-      <ul className={s.list}>
-        {data.allAirtable.nodes.map(({ recordId, data, table }) => (
-          <li key={recordId} className={s.item}>
-            <Link to={`${table}/${data.slug}`} className={s.link}>
-              <GatsbyImage
-                image={data.cover.localFiles[0].childImageSharp.gatsbyImageData}
-                alt={data.title}
-                className={s.img}
-              />
-              <h5 className={s.title}>{data.title}</h5>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <ProjectList list={data.allAirtable.nodes} />
     </>
   )
 }
