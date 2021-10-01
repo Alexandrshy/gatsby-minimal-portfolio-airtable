@@ -20,7 +20,7 @@ export const Projects: React.FC = () => {
           table
           data {
             title
-            slug
+            link
             cover {
               localFiles {
                 childImageSharp {
@@ -43,7 +43,7 @@ export const Projects: React.FC = () => {
     <>
       <Title subtitle="Projects">The last projects I worked on</Title>
       {nodes.length ? (
-        <ProjectList list={nodes} path="" />
+        <ProjectList list={nodes} />
       ) : (
         <p>Oops... Projects are still in progress, I'll post this very soon</p>
       )}
