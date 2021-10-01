@@ -35,6 +35,7 @@ export type ProjectsNodesType = {
     }
     status: "Published" | "Draft"
     slug: string
+    link: string
     date: string
   }
 }
