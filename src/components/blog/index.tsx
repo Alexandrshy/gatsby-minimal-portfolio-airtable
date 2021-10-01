@@ -38,7 +38,7 @@ export const Blog: React.FC = () => {
 
   return (
     <>
-      <Title>Publications</Title>
+      <Title subtitle="Publications">Recent articles</Title>
       {nodes.length ? (
         <Publications list={nodes} path={``} />
       ) : (
