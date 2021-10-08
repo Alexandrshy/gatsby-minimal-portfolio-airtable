@@ -1,0 +1,8 @@
+.box {
+  margin: 0 0 0.575rem;
+  font-size: 0.75rem;
+}
+
+.box span:not(:last-child) {
+  margin-right: 0.5rem;
+}
