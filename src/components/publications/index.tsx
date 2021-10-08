@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import { preparationReadingTime } from "../../utils/preparationReadingTime"
+import { Additional } from "../additional"
 
 import type { BlogNodesType } from "../../types/tables"
 
@@ -19,15 +19,7 @@ export const Publications: React.FC<PropsType> = ({ list, path }) => (
         <h5 className={s.title}>
           <Link to={`${path}${data.slug}`}>{data.title}</Link>
         </h5>
-        <div className={s.additional}>
-          <span>{data.date}</span>
-          <span>•</span>
-          <span>
-            {preparationReadingTime(
-              data.description.childMarkdownRemark.timeToRead
-            )}
-          </span>
-        </div>
+        <Additional date={data.date} description={data.description} />
         <p>{data.short_description}</p>
       </li>
     ))}

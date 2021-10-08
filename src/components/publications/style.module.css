@@ -14,15 +14,6 @@
   line-height: 1.7rem;
 }
 
-.additional {
-  margin: 0 0 0.575rem;
-  font-size: 0.75rem;
-}
-
-.additional span:not(:last-child) {
-  margin-right: 0.5rem;
-}
-
 @media screen and (max-width: 768px) {
   .item:not(:last-child) {
     margin-bottom: 2rem;
