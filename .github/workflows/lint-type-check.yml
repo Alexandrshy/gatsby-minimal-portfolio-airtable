@@ -1,0 +1,21 @@
+name: Pull-Requests Check
+
+on: [pull_request]
+
+jobs:
+  Lint-type-check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: install node_modules
+        run: npm i
+      - name: eslint
+        run: npm run lint
+      - name: ts
+        run: npm run type-check
