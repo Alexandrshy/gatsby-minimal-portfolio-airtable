@@ -6,13 +6,12 @@ import { Notes } from "../notes"
 
 import type { AirtableBlogType } from "../../types/tables"
 
-export const Blog: React.FC = () => {
-  const {
-    allAirtable: { nodes },
-  } = useStaticQuery<AirtableBlogType>(graphql`
+export const ShortNotes: React.FC = () => {
+  const data = useStaticQuery<AirtableBlogType>(graphql`
     {
       allAirtable(
         filter: { table: { eq: "blog" } }
+        limit: 3
         sort: { order: DESC, fields: data___date }
       ) {
         nodes {
@@ -38,15 +37,11 @@ export const Blog: React.FC = () => {
 
   return (
     <>
-      <Title subtitle="Notes">Recent notes from social media</Title>
-      {nodes.length ? (
-        <Notes list={nodes} path={``} />
-      ) : (
-        <p>
-          Oops... No posts have been written yet, come back later when I get
-          some inspiration
-        </p>
-      )}
+      <Title subtitle="Short notes">Some recent notes</Title>
+      <Notes
+        list={data.allAirtable.nodes}
+        path={`${data.allAirtable.nodes[0].table}/`}
+      />
     </>
   )
 }

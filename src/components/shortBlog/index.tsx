@@ -2,33 +2,27 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { Title } from "../title"
-import { Publications } from "../publications"
+import { LongReads } from "../longreads"
 
-import type { AirtableBlogType } from "../../types/tables"
+import type { AllMarkdownRemarkBlogType } from "../../types/tables"
 
 export const ShortBlog: React.FC = () => {
-  const data = useStaticQuery<AirtableBlogType>(graphql`
+  const data = useStaticQuery<AllMarkdownRemarkBlogType>(graphql`
     {
-      allAirtable(
-        filter: { table: { eq: "blog" } }
-        limit: 3
-        sort: { order: DESC, fields: data___date }
-      ) {
-        nodes {
-          recordId
-          table
-          data {
-            short_description
-            title
-            description {
-              childMarkdownRemark {
-                html
-                timeToRead
-              }
+      allMarkdownRemark(filter: { fields: { slug: { ne: null } } }, limit: 3) {
+        edges {
+          node {
+            id
+            html
+            timeToRead
+            frontmatter {
+              title
+              date(formatString: "MMMM DD, YYYY")
+              description
             }
-            status
-            slug
-            date(formatString: "MMMM DD, YYYY")
+            fields {
+              slug
+            }
           }
         }
       }
@@ -37,11 +31,8 @@ export const ShortBlog: React.FC = () => {
 
   return (
     <>
-      <Title subtitle="blog">Some recent posts</Title>
-      <Publications
-        list={data.allAirtable.nodes}
-        path={`${data.allAirtable.nodes[0].table}/`}
-      />
+      <Title subtitle="Longreads">Latest publications</Title>
+      <LongReads list={data.allMarkdownRemark.edges} />
     </>
   )
 }

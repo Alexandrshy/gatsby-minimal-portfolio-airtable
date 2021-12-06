@@ -4,6 +4,7 @@ import SEO from "react-seo-component"
 import { Description } from "../components/description"
 import { Chapter } from "../components/chapter"
 import { ShortBlog } from "../components/shortBlog"
+import { ShortNotes } from "../components/shortNotes"
 import { ShortProjects } from "../components/shortProjects"
 
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
@@ -39,6 +40,9 @@ export default () => {
         </Chapter>
         <Chapter>
           <ShortBlog />
+        </Chapter>
+        <Chapter>
+          <ShortNotes />
         </Chapter>
         <Chapter>
           <ShortProjects />

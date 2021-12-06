@@ -1,0 +1,21 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.title {
+  margin: 0 0 0.575rem;
+  font-size: 1.35rem;
+  line-height: 1.7rem;
+}
+
+@media screen and (max-width: 768px) {
+  .item:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}

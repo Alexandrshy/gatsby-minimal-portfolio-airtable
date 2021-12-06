@@ -50,6 +50,13 @@ module.exports = {
         path: `${__dirname}/static/img/`,
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: "blog",
+      },
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {

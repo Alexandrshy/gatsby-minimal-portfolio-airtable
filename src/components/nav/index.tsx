@@ -7,8 +7,12 @@ import * as s from "./style.module.css"
 
 const MENU_LIST = [
   {
-    title: "Blog",
-    url: "/blog",
+    title: "Publications",
+    url: "/longreads",
+  },
+  {
+    title: "Notes",
+    url: "/notes",
   },
   {
     title: "Projects",
@@ -32,7 +36,9 @@ export const Nav: React.FC = () => (
     <ul className={s.list}>
       {MENU_LIST.map(({ url, title }) => (
         <li key={title} className={s.item}>
-          <Link to={url}>{title}</Link>
+          <Link className={s.link} to={url}>
+            {title}
+          </Link>
         </li>
       ))}
     </ul>

@@ -1,27 +1,47 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
-import { Additional } from "../additional"
+import { Title } from "../title"
+import { LongReads } from "../longreads"
 
-import type { BlogNodesType } from "../../types/tables"
+import type { AllMarkdownRemarkBlogType } from "../../types/tables"
 
-import * as s from "./style.module.css"
+export const Publications: React.FC = () => {
+  const {
+    allMarkdownRemark: { edges },
+  } = useStaticQuery<AllMarkdownRemarkBlogType>(graphql`
+    {
+      allMarkdownRemark(filter: { fields: { slug: { ne: null } } }) {
+        edges {
+          node {
+            id
+            html
+            timeToRead
+            frontmatter {
+              title
+              date(formatString: "MMMM DD, YYYY")
+              description
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
 
-type PropsType = {
-  list: BlogNodesType[]
-  path: string
+  return (
+    <>
+      <Title subtitle="Longreads">Latest publications</Title>
+      {edges.length ? (
+        <LongReads list={edges} />
+      ) : (
+        <p>
+          Oops... No posts have been written yet, come back later when I get
+          some inspiration
+        </p>
+      )}
+    </>
+  )
 }
-
-export const Publications: React.FC<PropsType> = ({ list, path }) => (
-  <ul className={s.list}>
-    {list.map(({ recordId, data }) => (
-      <li key={recordId} className={s.item}>
-        <h5 className={s.title}>
-          <Link to={`${path}${data.slug}`}>{data.title}</Link>
-        </h5>
-        <Additional date={data.date} description={data.description} />
-        <p>{data.short_description}</p>
-      </li>
-    ))}
-  </ul>
-)
