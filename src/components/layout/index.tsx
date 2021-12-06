@@ -1,5 +1,4 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 
 import { Header } from "../header"
 import { Footer } from "../footer"
@@ -9,16 +8,6 @@ import "../../css/variables.css"
 import * as s from "./style.module.css"
 
 const Layout: React.FC = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <div className={s.layout}>
       <div className={s.wrapper}>
