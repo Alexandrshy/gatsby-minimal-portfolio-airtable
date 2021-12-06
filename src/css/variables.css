@@ -24,6 +24,7 @@
   --shark: #252931;
   --carnation-pink: #ffaaca;
   --carnation-pink-35: rgba(255, 170, 202, 0.35);
+  --bon-jour-35: rgba(232, 229, 229, 0.35);
   --bon-jour: #e8e5e5;
   --gray-chateau: #9ca3af;
 
@@ -33,6 +34,7 @@
   --subtitle-color: var(--gray-chateau);
   --link-color: var(--carnation-pink);
   --link-decoration-color: var(--carnation-pink-35);
+  --link-decoration-white-color: var(--carnation-pink-35);
   --border-logo-color: var(--bon-jour);
   --border-logo-color-hover: var(--carnation-pink);
 }

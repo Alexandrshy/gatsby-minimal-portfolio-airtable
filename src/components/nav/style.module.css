@@ -35,6 +35,17 @@
   margin-right: 0;
 }
 
+.link {
+  color: var(--text-color);
+  text-decoration-color: var(--bon-jour-35);
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: var(--link-color);
+  }
+}
+
 @media screen and (max-width: 768px) {
   .list {
     margin: 0 1.2rem 0 0;

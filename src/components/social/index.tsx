@@ -13,7 +13,7 @@ export const Social: React.FC<PropsType> = ({ list }) => (
   <ul className={s.list}>
     {list.map(({ url, title }) => (
       <li key={title} className={s.item}>
-        <a href={url} target="_blank" rel="noopener">
+        <a href={url} className={s.link} target="_blank" rel="noopener">
           {title}
         </a>
       </li>

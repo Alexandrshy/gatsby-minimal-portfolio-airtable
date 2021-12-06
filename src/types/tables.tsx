@@ -53,3 +53,25 @@ export type AirtableProjectsType = {
     nodes: ProjectsNodesType[]
   }
 }
+
+export type MarkdownRemarkType = {
+  id: string
+  html: string
+  timeToRead: number
+  frontmatter: {
+    title: string
+    date: string
+    description: string
+  }
+  fields: {
+    slug: string
+  }
+}
+
+export type AllMarkdownRemarkType = { node: MarkdownRemarkType }
+
+export type AllMarkdownRemarkBlogType = {
+  allMarkdownRemark: {
+    edges: AllMarkdownRemarkType[]
+  }
+}

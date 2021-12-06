@@ -49,14 +49,9 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `)
 
-    console.log(
-      "result.data.allMarkdownRemark.nodes231",
-      result.data.allMarkdownRemark.nodes[0]
-    )
-
     result.data.allMarkdownRemark.nodes.forEach(({ id, fields: { slug } }) => {
       createPage({
-        path: `${slug}`,
+        path: `longread${slug}`,
         component: LongRead,
         context: {
           id,

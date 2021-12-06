@@ -16,9 +16,9 @@ export default () => {
       <SEO
         title={title}
         titleSeparator="|"
-        titleTemplate="Blog"
-        description="All articles from new to old on the topic of front-end development and team management"
-        pathname="/blog"
+        titleTemplate="Notes"
+        description="Storage of all the notes that I left for myself in one of the social networks"
+        pathname="/notes"
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
         twitterUsername={twitterUsername}

@@ -6,20 +6,13 @@ import * as s from "./style.module.css"
 
 type PropsType = {
   date: string
-  description: {
-    childMarkdownRemark: {
-      html: string
-      timeToRead: number
-    }
-  }
+  timeToRead?: number
 }
 
-export const Additional: React.FC<PropsType> = ({ date, description }) => (
+export const Additional: React.FC<PropsType> = ({ date, timeToRead }) => (
   <div className={s.box}>
     <span>{date}</span>
-    <span>•</span>
-    <span>
-      {preparationReadingTime(description.childMarkdownRemark.timeToRead)}
-    </span>
+    {timeToRead && <span>•</span>}
+    {timeToRead && <span>{preparationReadingTime(timeToRead)}</span>}
   </div>
 )

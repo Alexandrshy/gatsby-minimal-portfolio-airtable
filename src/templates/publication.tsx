@@ -37,7 +37,7 @@ export default ({
       <div className={s.wrapper}>
         <header className={s.header}>
           <Title isDecreased>{data.title}</Title>
-          <Additional date={data.date} description={data.description} />
+          <Additional date={data.date} />
         </header>
         <div
           dangerouslySetInnerHTML={{
@@ -58,7 +58,6 @@ export const query = graphql`
         description {
           childMarkdownRemark {
             html
-            timeToRead
           }
         }
         status
