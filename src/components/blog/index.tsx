@@ -40,7 +40,7 @@ export const Blog: React.FC = () => {
     <>
       <Title subtitle="Notes">Recent notes from social media</Title>
       {nodes.length ? (
-        <Notes list={nodes} path={``} />
+        <Notes list={nodes} path="" />
       ) : (
         <p>
           Oops... No posts have been written yet, come back later when I get
