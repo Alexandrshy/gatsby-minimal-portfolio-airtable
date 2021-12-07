@@ -16,7 +16,7 @@ export const LongReads: React.FC<PropsType> = ({ list }) => (
     {list.map(({ node: { id, frontmatter, timeToRead, fields } }) => (
       <li key={id} className={s.item}>
         <h5 className={s.title}>
-          <Link to={`longread${fields.slug}`}>{frontmatter.title}</Link>
+          <Link to={`/longread${fields.slug}`}>{frontmatter.title}</Link>
         </h5>
         <Additional date={frontmatter.date} timeToRead={timeToRead} />
         <p>{frontmatter.description}</p>
