@@ -76,6 +76,7 @@ module.exports = {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
                 const siteUrl = site.siteMetadata.siteUrl
+                // TODO: переписать на собственный
                 const postText = `
                 <div style="margin-top=55px; font-style: italic;">(This is an article posted to my blog at overreacted.io. You can read it online by <a href="${
                   siteUrl + "/longread" + edge.node.fields.slug
