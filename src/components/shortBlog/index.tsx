@@ -17,7 +17,7 @@ export const ShortBlog: React.FC = () => {
             timeToRead
             frontmatter {
               title
-              date(formatString: "MMMM DD, YYYY")
+              date(formatString: "DD-MM-YYYY")
               description
             }
             fields {

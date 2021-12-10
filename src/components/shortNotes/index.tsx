@@ -10,7 +10,7 @@ export const ShortNotes: React.FC = () => {
   const data = useStaticQuery<AirtableBlogType>(graphql`
     {
       allAirtable(
-        filter: { table: { eq: "blog" } }
+        filter: { table: { eq: "notes" } }
         limit: 3
         sort: { order: DESC, fields: data___date }
       ) {
@@ -28,7 +28,7 @@ export const ShortNotes: React.FC = () => {
             }
             status
             slug
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "DD-MM-YYYY")
           }
         }
       }
