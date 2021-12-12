@@ -37,7 +37,7 @@ export default ({
       <div className={s.wrapper}>
         <header className={s.header}>
           <Title isDecreased>{data.title}</Title>
-          <Additional date={data.date} />
+          <Additional date={data.date} slug={`notes/${data.slug}`} />
         </header>
         <div
           dangerouslySetInnerHTML={{
@@ -62,7 +62,7 @@ export const query = graphql`
         }
         status
         slug
-        date(formatString: "DD-MM-YYYY")
+        date(formatString: "MMMM, DD, YYYY")
       }
     }
   }

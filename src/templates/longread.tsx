@@ -4,6 +4,7 @@ import SEO from "react-seo-component"
 
 import { Title } from "../components/title"
 import { Additional } from "../components/additional"
+import { Typography } from "../components/typography"
 
 import type { MarkdownRemarkType } from "../types/tables"
 
@@ -39,13 +40,19 @@ export default ({
       <div className={s.wrapper}>
         <header className={s.header}>
           <Title isDecreased>{frontmatter.title}</Title>
-          <Additional date={frontmatter.date} timeToRead={timeToRead} />
+          <Additional
+            date={frontmatter.date}
+            timeToRead={timeToRead}
+            slug={`longread${fields.slug}`}
+          />
         </header>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: html,
-          }}
-        />
+        <Typography>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: html,
+            }}
+          />
+        </Typography>
       </div>
     </article>
   )
@@ -59,7 +66,7 @@ export const query = graphql`
       timeToRead
       frontmatter {
         title
-        date(formatString: "DD-MM-YYYY")
+        date(formatString: "MMMM, DD, YYYY")
         description
       }
       fields {
