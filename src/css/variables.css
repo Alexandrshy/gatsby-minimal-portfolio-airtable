@@ -21,14 +21,17 @@
 
   --transition: 0.3s;
 
+  --woodsmoke: #0e0f10;
   --shark: #252931;
   --carnation-pink: #ffaaca;
   --carnation-pink-35: rgba(255, 170, 202, 0.35);
   --bon-jour-35: rgba(232, 229, 229, 0.35);
+  --bon-jour-65: rgba(232, 229, 229, 0.65);
   --bon-jour: #e8e5e5;
   --gray-chateau: #9ca3af;
 
   --bg: var(--shark);
+  --bg-code: var(--woodsmoke);
   --logo-text-color: var(--bon-jour);
   --text-color: var(--bon-jour);
   --subtitle-color: var(--gray-chateau);
@@ -119,4 +122,162 @@ a {
   a:hover {
     text-decoration: none;
   }
+}
+
+a.anchor.before {
+  width: 17px;
+  padding-right: 5px;
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: color var(--transition);
+}
+
+@media (hover: hover) {
+  a.anchor.before:hover {
+    color: var(--link-color);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  a.anchor.before {
+    left: 7px;
+  }
+}
+
+h1 a.anchor.before {
+  top: 12px;
+}
+
+h2 a.anchor.before {
+  top: 6px;
+}
+
+h3 a.anchor.before {
+  top: 2px;
+}
+
+h5 a.anchor.before {
+  top: 1px;
+  font-size: 0.75rem;
+}
+
+h6 a.anchor.before {
+  font-size: 0.75rem;
+}
+
+code {
+  font-size: 0.85rem;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: var(--bon-jour);
+  background: none;
+  font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
+  font-feature-settings: normal;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: calc(var(--base-line-height) - 0.35);
+  margin-bottom: 0;
+  tab-size: 4;
+  hyphens: none;
+}
+
+pre[class*='language-'] {
+  overflow: auto;
+  padding: 1.3rem;
+  background-color: var(--woodsmoke);
+}
+
+:not(pre) > code[class*='language-'] {
+  display: inline-block;
+  padding: 0 0.3725rem;
+  background-color: var(--bg-code);
+  white-space: normal;
+  font-size: calc(.75rem + .1vw);
+  line-height: calc(1.5rem + .2vw);
+  border-radius: 5px;
+}
+
+.token.cdata,.token.comment,.token.doctype,.token.prolog {
+  color: #5e7671;
+  font-style: italic
+}
+
+.token.property,.token.punctuation,.token.tag {
+  color: #72e0d1
+}
+
+.token.attr-name {
+  color: #83ba52
+}
+
+.token.boolean,.token.number {
+  color: #fc9463
+}
+
+.token.attr-value,.token.selector {
+  color: #f5d67b
+}
+
+.token.entity,.token.operator,.token.url,.token.variable {
+  color: #aa7ee1
+}
+
+.token.atrule,.token.keyword,.token.string {
+  color: #83ba52
+}
+
+.token.important,.token.regex {
+  color: #e90
+}
+
+code.language-css,
+code.language-javascript,
+code.language-scss,
+code.language-jsx,
+code.language-js,
+pre.language-css,
+pre.language-javascript,
+pre.language-scss,
+pre.language-jsx,
+pre.language-js{
+  color: #f5d67b;
+}
+
+pre[data-line] {
+  position: relative;
+  padding: 1rem 0 1rem 3rem;
+}
+
+.gatsby-highlight-code-line {
+  display: block;
+  background-color: #282828;
+  margin: 0 -1.3rem;
+  padding: 0 1rem;
+  border-left: 0.25rem solid #83ba52;
+}
+
+.gatsby-highlight {
+  margin-bottom: 1.75rem;
+  margin-left: -1.3rem;
+  margin-right: -1.3rem;
+  border-radius: 10px;
+  background: var(--bg-code);
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .gatsby-highlight {
+    border-radius: 0;
+  }
+}
+
+.gatsby-highlight pre[class*='language-'] {
+  float: left;
+  min-width: 100%;
 }
