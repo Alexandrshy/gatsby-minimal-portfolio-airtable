@@ -62,7 +62,7 @@ export const query = graphql`
         }
         status
         slug
-        date(formatString: "MMMM, DD, YYYY")
+        date(formatString: "MMMM DD, YYYY")
       }
     }
   }
