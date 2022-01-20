@@ -19,7 +19,10 @@ export const Notes: React.FC<PropsType> = ({ list, path }) => (
         <h5 className={s.title}>
           <Link to={`${path}${data.slug}`}>{data.title}</Link>
         </h5>
-        <Additional date={data.date} />
+        <Additional
+          date={data.date}
+          timeToRead={data.description.childMarkdownRemark.timeToRead}
+        />
         <p>{data.short_description}</p>
       </li>
     ))}
