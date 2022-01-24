@@ -15,7 +15,7 @@ export default () => {
     <>
       <SEO
         title={title}
-        titleSeparator="|"
+        titleSeparator="·"
         titleTemplate="Projects"
         description="Pet projects in which I took part"
         pathname="/projects"

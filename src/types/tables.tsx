@@ -75,3 +75,12 @@ export type AllMarkdownRemarkBlogType = {
     edges: AllMarkdownRemarkType[]
   }
 }
+
+export type AnnotationType = {
+  id: string
+  timeToRead: number
+  title: string
+  date: string
+  description: string
+  path: string
+}

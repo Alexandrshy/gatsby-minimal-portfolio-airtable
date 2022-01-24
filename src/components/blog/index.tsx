@@ -2,9 +2,9 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { Title } from "../title"
-import { Notes } from "../notes"
+import { Annotation } from "../annotation"
 
-import type { AirtableBlogType } from "../../types/tables"
+import type { AirtableBlogType, AnnotationType } from "../../types/tables"
 
 export const Blog: React.FC = () => {
   const {
@@ -36,11 +36,25 @@ export const Blog: React.FC = () => {
     }
   `)
 
+  const list = nodes.map(
+    ({
+      recordId: id,
+      data: { slug, title, date, short_description, description },
+    }): AnnotationType => ({
+      id,
+      timeToRead: description.childMarkdownRemark.timeToRead,
+      title,
+      date,
+      description: short_description,
+      path: slug,
+    })
+  )
+
   return (
     <>
       <Title subtitle="Notes">Recent notes from social media</Title>
       {nodes.length ? (
-        <Notes list={nodes} path="" />
+        <Annotation list={list} />
       ) : (
         <p>
           Oops... No posts have been written yet, come back later when I get
