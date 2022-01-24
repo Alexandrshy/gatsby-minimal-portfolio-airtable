@@ -28,9 +28,9 @@ export default ({
     <article>
       <SEO
         title={frontmatter.title}
-        titleSeparator="|"
+        titleSeparator="·"
         titleTemplate={titleTemplate}
-        description="data.short_description"
+        description={frontmatter.date}
         pathname={fields.slug}
         siteLanguage={siteLanguage}
         siteLocale={siteLocale}
