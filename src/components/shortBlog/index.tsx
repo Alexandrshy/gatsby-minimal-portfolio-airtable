@@ -2,12 +2,17 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { Title } from "../title"
-import { LongReads } from "../longreads"
+import { Annotation } from "../annotation"
 
-import type { AllMarkdownRemarkBlogType } from "../../types/tables"
+import type {
+  AllMarkdownRemarkBlogType,
+  AnnotationType,
+} from "../../types/tables"
 
 export const ShortBlog: React.FC = () => {
-  const data = useStaticQuery<AllMarkdownRemarkBlogType>(graphql`
+  const {
+    allMarkdownRemark: { edges },
+  } = useStaticQuery<AllMarkdownRemarkBlogType>(graphql`
     {
       allMarkdownRemark(filter: { fields: { slug: { ne: null } } }, limit: 3) {
         edges {
@@ -29,10 +34,28 @@ export const ShortBlog: React.FC = () => {
     }
   `)
 
-  return (
+  const list = edges.map(
+    ({
+      node: {
+        id,
+        timeToRead,
+        frontmatter: { title, date, description },
+        fields: { slug },
+      },
+    }): AnnotationType => ({
+      id,
+      timeToRead,
+      title,
+      date,
+      description,
+      path: `/longread${slug}`,
+    })
+  )
+
+  return edges?.length ? (
     <>
       <Title subtitle="Longreads">Latest publications</Title>
-      <LongReads list={data.allMarkdownRemark.edges} />
+      <Annotation list={list} />
     </>
-  )
+  ) : null
 }

@@ -2,12 +2,14 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { Title } from "../title"
-import { Notes } from "../notes"
+import { Annotation } from "../annotation"
 
-import type { AirtableBlogType } from "../../types/tables"
+import type { AirtableBlogType, AnnotationType } from "../../types/tables"
 
 export const ShortNotes: React.FC = () => {
-  const data = useStaticQuery<AirtableBlogType>(graphql`
+  const {
+    allAirtable: { nodes },
+  } = useStaticQuery<AirtableBlogType>(graphql`
     {
       allAirtable(
         filter: { table: { eq: "notes" } }
@@ -22,11 +24,9 @@ export const ShortNotes: React.FC = () => {
             title
             description {
               childMarkdownRemark {
-                html
                 timeToRead
               }
             }
-            status
             slug
             date(formatString: "MMMM DD, YYYY")
           }
@@ -35,13 +35,25 @@ export const ShortNotes: React.FC = () => {
     }
   `)
 
-  return (
+  const list = nodes.map(
+    ({
+      recordId: id,
+      table,
+      data: { slug, title, date, short_description, description },
+    }): AnnotationType => ({
+      id,
+      timeToRead: description.childMarkdownRemark.timeToRead,
+      title,
+      date,
+      description: short_description,
+      path: `${table}/${slug}`,
+    })
+  )
+
+  return nodes?.length ? (
     <>
       <Title subtitle="Short notes">Some recent notes</Title>
-      <Notes
-        list={data.allAirtable.nodes}
-        path={`${data.allAirtable.nodes[0].table}/`}
-      />
+      <Annotation list={list} />
     </>
-  )
+  ) : null
 }
