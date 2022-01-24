@@ -3,6 +3,10 @@
   font-size: 0.75rem;
 }
 
+.box span {
+  color: var(--bon-jour-65);
+}
+
 .box span:not(:last-child) {
   margin-right: 0.5rem;
 }

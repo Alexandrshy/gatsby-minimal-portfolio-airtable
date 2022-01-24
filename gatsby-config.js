@@ -57,6 +57,40 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 550,
+              wrapperStyle: () => "margin: 2.5rem auto",
+            },
+          },
+          {
+            resolve: "gatsby-remark-autolink-headers",
+            options: {
+              icon: "#",
+            },
+          },
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {
+              inlineCodeMarker: "÷",
+            },
+          },
+          "gatsby-remark-copy-linked-files",
+          "gatsby-remark-smartypants",
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+            },
+          },
+        ],
+      },
+    },
+    {
       resolve: "gatsby-plugin-feed",
       options: {
         query: `

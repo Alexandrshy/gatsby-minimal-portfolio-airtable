@@ -28,7 +28,7 @@ export const ShortNotes: React.FC = () => {
             }
             status
             slug
-            date(formatString: "DD-MM-YYYY")
+            date(formatString: "MMMM DD, YYYY")
           }
         }
       }

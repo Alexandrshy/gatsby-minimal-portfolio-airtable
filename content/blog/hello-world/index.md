@@ -18,7 +18,7 @@ Oh, and here's a great quote from this Wikipedia on
 > wrapped in plastic, and vacuum packed. From the salt curing process, the
 > salted duck eggs have a briny aroma, a gelatin-like egg white and a
 > firm-textured, round yolk that is bright orange-red in color.
-> ![Chinese Salty Egg](./salty_egg.jpg)
+> ![Chinese Salty Egg](./logo.png "Image Title")
 
 You can also write code blocks here!
 
@@ -26,13 +26,28 @@ You can also write code blocks here!
 const saltyDuckEgg = "chinese preserved food product"
 ```
 
-| Number | Title                                    | Year |
-| :----- | :--------------------------------------- | ---: |
-| 1      | Harry Potter and the Philosopher’s Stone | 2001 |
-| 2      | Harry Potter and the Chamber of Secrets  | 2002 |
-| 3      | Harry Potter and the Prisoner of Azkaban | 2004 |
+```jsx
+import { useState } from "react"
 
-[View raw (TEST.md)](https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md)
+export default function App() {
+  let [color, setColor] = useState("red")
+  return (
+    <div>
+      <input value={color} onChange={e => setColor(e.target.value)} />
+      <p style={{ color }}>Hello, world!</p>
+      <ExpensiveTree />
+    </div>
+  )
+}
+
+function ExpensiveTree() {
+  let now = performance.now()
+  while (performance.now() - now < 100) {
+    // Artificial delay -- do nothing for 100ms
+  }
+  return <p>I am a very slow component tree.</p>
+}
+```
 
 This is a paragraph.
 
@@ -119,75 +134,10 @@ This is a paragraph.
 - Green
 - Blue
 
-```markdown
-- Red
-- Green
-- Blue
-
-* Red
-* Green
-* Blue
-
-- Red
-- Green
-- Blue
-```
-
 - `code goes` here in this line
 - **bold** goes here
 
-```markdown
-- `code goes` here in this line
-- **bold** goes here
-```
-
-1. Buy flour and salt
-1. Mix together with water
-1. Bake
-
-```markdown
-1. Buy flour and salt
-1. Mix together with water
-1. Bake
-```
-
-1. `code goes` here in this line
-1. **bold** goes here
-
-```markdown
-1. `code goes` here in this line
-1. **bold** goes here
-```
-
-Paragraph:
-
-    Code
-
-<!-- -->
-
-    Paragraph:
-
-        Code
-
 ---
-
----
-
----
-
----
-
----
-
-    * * *
-
-    ***
-
-    *****
-
-    - - -
-
-    ---------------------------------------
 
 This is [an example](http://example.com "Example") link.
 
@@ -195,36 +145,10 @@ This is [an example](http://example.com "Example") link.
 
 This is [an example][id] reference-style link.
 
-[id]: http://example.com "Optional Title"
-
-    This is [an example](http://example.com "Example") link.
-
-    [This link](http://example.com) has no title attr.
-
-    This is [an example] [id] reference-style link.
-
-    [id]: http://example.com "Optional Title"
-
 _single asterisks_
 
 _single underscores_
 
 **double asterisks**
 
-**double underscores**
-
-    *single asterisks*
-
-    _single underscores_
-
-    **double asterisks**
-
-    __double underscores__
-
 This paragraph has some `code` in it.
-
-    This paragraph has some `code` in it.
-
-![Alt Text](https://placehold.it/200x50 "Image Title")
-
-    ![Alt Text](https://placehold.it/200x50 "Image Title")
