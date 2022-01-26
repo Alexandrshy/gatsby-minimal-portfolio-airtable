@@ -29,6 +29,7 @@ export const ShortNotes: React.FC = () => {
             }
             slug
             date(formatString: "MMMM DD, YYYY")
+            tags
           }
         }
       }
@@ -39,7 +40,7 @@ export const ShortNotes: React.FC = () => {
     ({
       recordId: id,
       table,
-      data: { slug, title, date, short_description, description },
+      data: { slug, title, date, short_description, description, tags },
     }): AnnotationType => ({
       id,
       timeToRead: description.childMarkdownRemark.timeToRead,
@@ -47,6 +48,7 @@ export const ShortNotes: React.FC = () => {
       date,
       description: short_description,
       path: `${table}/${slug}`,
+      tags,
     })
   )
 

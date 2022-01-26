@@ -24,6 +24,7 @@ export const ShortBlog: React.FC = () => {
               title
               date(formatString: "MMMM DD, YYYY")
               description
+              tags
             }
             fields {
               slug
@@ -39,7 +40,7 @@ export const ShortBlog: React.FC = () => {
       node: {
         id,
         timeToRead,
-        frontmatter: { title, date, description },
+        frontmatter: { title, date, description, tags },
         fields: { slug },
       },
     }): AnnotationType => ({
@@ -49,6 +50,7 @@ export const ShortBlog: React.FC = () => {
       date,
       description,
       path: `/longread${slug}`,
+      tags,
     })
   )
 

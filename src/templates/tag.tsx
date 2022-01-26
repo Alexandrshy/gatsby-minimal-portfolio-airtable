@@ -29,9 +29,6 @@ export default ({
   const { titleTemplate, siteLanguage, siteLocale, twitterUsername } =
     useSiteMetadata()
 
-  console.log("1. allMarkdownRemarkallMarkdownRemark", allMarkdownRemark, tag)
-  console.log("2. allAirtable", allAirtable, tag)
-
   const totalCount = allMarkdownRemark.totalCount + allAirtable.totalCount
   const listNotes = allAirtable.nodes.map(
     ({

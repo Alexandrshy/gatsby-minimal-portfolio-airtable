@@ -30,6 +30,7 @@ export const Blog: React.FC = () => {
             status
             slug
             date(formatString: "MMMM DD, YYYY")
+            tags
           }
         }
       }
@@ -39,7 +40,7 @@ export const Blog: React.FC = () => {
   const list = nodes.map(
     ({
       recordId: id,
-      data: { slug, title, date, short_description, description },
+      data: { slug, title, date, short_description, description, tags },
     }): AnnotationType => ({
       id,
       timeToRead: description.childMarkdownRemark.timeToRead,
@@ -47,6 +48,7 @@ export const Blog: React.FC = () => {
       date,
       description: short_description,
       path: slug,
+      tags,
     })
   )
 
