@@ -12,6 +12,7 @@ export type BlogDataType = {
   status: "Published" | "Draft"
   slug: string
   date: string
+  tags: string[]
 }
 
 export type BlogNodesType = {
@@ -62,6 +63,7 @@ export type MarkdownRemarkType = {
     title: string
     date: string
     description: string
+    tags: string[]
   }
   fields: {
     slug: string
@@ -83,4 +85,5 @@ export type AnnotationType = {
   date: string
   description: string
   path: string
+  tags?: string[]
 }
