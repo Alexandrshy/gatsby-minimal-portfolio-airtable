@@ -28,7 +28,7 @@ export const Additional: React.FC<PropsType> = ({
       <ul className={s.list}>
         {tags.map(item => (
           <li key={item} className={s.item}>
-            <Link to={`tag/${item}`}>#{item}</Link>
+            <Link to={`/tag/${item}`}>#{item}</Link>
           </li>
         ))}
       </ul>
