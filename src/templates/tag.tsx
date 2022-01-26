@@ -6,12 +6,15 @@ import { Title } from "../components/title"
 import { Chapter } from "../components/chapter"
 import { Annotation } from "../components/annotation"
 
-import type { AllMarkdownRemarkType, BlogNodesType } from "../types/tables"
+import type {
+  AllMarkdownRemarkType,
+  BlogNodesType,
+  AnnotationType,
+} from "../types/tables"
 
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 import * as s from "./index.module.css"
-import { AnnotationType } from "../types/tables"
 
 export default ({
   data: { allMarkdownRemark, allAirtable },
