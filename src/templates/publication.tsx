@@ -25,7 +25,7 @@ export default ({
     <article>
       <SEO
         title={data.title}
-        titleSeparator="|"
+        titleSeparator="·"
         titleTemplate={titleTemplate}
         description={data.short_description}
         pathname={`/${data.slug}`}

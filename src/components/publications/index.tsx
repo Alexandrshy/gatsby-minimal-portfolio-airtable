@@ -2,9 +2,12 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { Title } from "../title"
-import { LongReads } from "../longreads"
+import { Annotation } from "../annotation"
 
-import type { AllMarkdownRemarkBlogType } from "../../types/tables"
+import type {
+  AllMarkdownRemarkBlogType,
+  AnnotationType,
+} from "../../types/tables"
 
 export const Publications: React.FC = () => {
   const {
@@ -15,7 +18,6 @@ export const Publications: React.FC = () => {
         edges {
           node {
             id
-            html
             timeToRead
             frontmatter {
               title
@@ -31,11 +33,29 @@ export const Publications: React.FC = () => {
     }
   `)
 
+  const list = edges.map(
+    ({
+      node: {
+        id,
+        timeToRead,
+        frontmatter: { title, date, description },
+        fields: { slug },
+      },
+    }): AnnotationType => ({
+      id,
+      timeToRead,
+      title,
+      date,
+      description,
+      path: `/longread${slug}`,
+    })
+  )
+
   return (
     <>
       <Title subtitle="Longreads">Latest publications</Title>
       {edges.length ? (
-        <LongReads list={edges} />
+        <Annotation list={list} />
       ) : (
         <p>
           Oops... No posts have been written yet, come back later when I get

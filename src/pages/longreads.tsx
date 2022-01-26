@@ -15,7 +15,7 @@ export default () => {
     <>
       <SEO
         title={title}
-        titleSeparator="|"
+        titleSeparator="·"
         titleTemplate="Blog"
         description="All articles from new to old on the topic of front-end development and team management"
         pathname="/longreads"

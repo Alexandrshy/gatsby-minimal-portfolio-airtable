@@ -22,8 +22,6 @@ const SOCIAL_LIST = [
 export const Footer: React.FC = () => (
   <footer className={s.footer}>
     <Social list={SOCIAL_LIST} />
-    <a className={s.rss} href="/rss.xml">
-      RSS
-    </a>
+    <a href="/rss.xml">RSS</a>
   </footer>
 )
